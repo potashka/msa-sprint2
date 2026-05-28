@@ -1,0 +1,4 @@
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+20dcce6de350   task3-apollo-gateway     "docker-entrypoint.s…"   33 minutes ago   Up 33 minutes   0.0.0.0:4000->4000/tcp, [::]:4000->4000/tcp   hotelio-apollo-gateway
+8e5161dc45f4   task3-hotel-subgraph     "docker-entrypoint.s…"   33 minutes ago   Up 33 minutes   0.0.0.0:4002->4002/tcp, [::]:4002->4002/tcp   hotelio-hotel-subgraph
+000c3e327d6b   task3-booking-subgraph   "docker-entrypoint.s…"   33 minutes ago   Up 33 minutes   0.0.0.0:4001->4001/tcp, [::]:4001->4001/tcp   hotelio-booking-subgraph

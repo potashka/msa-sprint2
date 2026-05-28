@@ -1,0 +1,21 @@
+hotelio-apollo-gateway  | The `serviceList` option is deprecated and will be removed in a future version of `@apollo/gateway`. Please migrate to its replacement `IntrospectAndCompose`. More information on `IntrospectAndCompose` can be found in the documentation.
+hotelio-apollo-gateway  | Apollo Gateway ready at http://0.0.0.0:4000/
+hotelio-hotel-subgraph  | Enabling inline tracing for this subgraph. To disable, use ApolloServerPluginInlineTraceDisabled.
+hotelio-hotel-subgraph  | Hotel subgraph ready at http://0.0.0.0:4002/
+hotelio-hotel-subgraph  | [hotel-subgraph] __resolveReference id=hotel-1 found=true
+hotelio-hotel-subgraph  | [hotel-subgraph] __resolveReference id=hotel-2 found=true
+hotelio-hotel-subgraph  | [hotel-subgraph] __resolveReference id=hotel-1 found=true
+hotelio-hotel-subgraph    | [hotel-subgraph] __resolveReference id=hotel-2 found=true
+hotelio-hotel-subgraph    | [hotel-subgraph] __resolveReference id=hotel-1 found=true
+hotelio-hotel-subgraph    | [hotel-subgraph] __resolveReference id=hotel-2 found=true
+hotelio-booking-subgraph  | Enabling inline tracing for this subgraph. To disable, use ApolloServerPluginInlineTraceDisabled.
+hotelio-booking-subgraph  | Booking subgraph ready at http://0.0.0.0:4001/
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user1 acl=ALLOW
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser resultCount=2
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user2 acl=DENY
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user1 acl=ALLOW
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser resultCount=2
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user2 acl=DENY
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user1 acl=ALLOW
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser resultCount=2
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user2 acl=DENY

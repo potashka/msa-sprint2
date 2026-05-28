@@ -1,0 +1,1 @@
+[{"id":3,"userId":"test-user-2","hotelId":"test-hotel-1","promoCode":"TESTCODE1","discountPercent":10.0,"price":90.0,"createdAt":"2026-05-28T15:26:36.661887Z"},{"id":4,"userId":"test-user-3","hotelId":"test-hotel-1","promoCode":null,"discountPercent":0.0,"price":80.0,"createdAt":"2026-05-28T15:26:36.661887Z"}]

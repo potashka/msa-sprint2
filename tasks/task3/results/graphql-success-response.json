@@ -1,0 +1,1 @@
+{"data":{"bookingsByUser":[{"id":"b1","userId":"user1","hotelId":"hotel-1","hotel":{"id":"hotel-1","name":"Hotelio Seoul Central","city":"Seoul"},"discountPercent":10,"promoCode":"SUMMER2024"},{"id":"b2","userId":"user1","hotelId":"hotel-2","hotel":{"id":"hotel-2","name":"Hotelio Busan Harbor","city":"Busan"},"discountPercent":0,"promoCode":null}]}}

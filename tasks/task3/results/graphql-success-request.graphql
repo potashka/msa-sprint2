@@ -1,0 +1,17 @@
+# Для успешной проверки нужен HTTP header:
+# userid: user1
+
+query {
+  bookingsByUser(userId: "user1") {
+    id
+    userId
+    hotelId
+    hotel {
+      id
+      name
+      city
+    }
+    discountPercent
+    promoCode
+  }
+}

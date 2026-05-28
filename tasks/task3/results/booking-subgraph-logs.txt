@@ -1,0 +1,11 @@
+hotelio-booking-subgraph  | Enabling inline tracing for this subgraph. To disable, use ApolloServerPluginInlineTraceDisabled.
+hotelio-booking-subgraph  | Booking subgraph ready at http://0.0.0.0:4001/
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user1 acl=ALLOW
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser resultCount=2
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user2 acl=DENY
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user1 acl=ALLOW
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser resultCount=2
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user2 acl=DENY
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user1 acl=ALLOW
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser resultCount=2
+hotelio-booking-subgraph  | [booking-subgraph] bookingsByUser requestedUser=user1 headerUser=user2 acl=DENY

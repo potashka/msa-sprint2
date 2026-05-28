@@ -1,0 +1,17 @@
+# Для проверки Deny нужен HTTP header:
+# userid: user2
+
+query {
+  bookingsByUser(userId: "user1") {
+    id
+    userId
+    hotelId
+    hotel {
+      id
+      name
+      city
+    }
+    discountPercent
+    promoCode
+  }
+}

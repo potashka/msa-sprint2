@@ -1,0 +1,8 @@
+-- Monolith DB: legacy table is named booking
+-- SQL: SELECT * FROM booking ORDER BY id;
+ discount_percent | price |          created_at           | id |   hotel_id   | promo_code |   user_id   
+------------------+-------+-------------------------------+----+--------------+------------+-------------
+               10 |    90 | 2026-05-28 15:26:36.661887+00 |  3 | test-hotel-1 | TESTCODE1  | test-user-2
+                0 |    80 | 2026-05-28 15:26:36.661887+00 |  4 | test-hotel-1 |            | test-user-3
+(2 rows)
+
