@@ -1,4 +1,4 @@
-replicaCount: 1
+replicaCount: 3
 
 image:
   name: booking-service
@@ -16,11 +16,11 @@ service:
 
 resources:
   requests:
-    cpu: 50m
-    memory: 64Mi
-  limits:
-    cpu: 250m
+    cpu: 100m
     memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
 
 livenessProbe:
   path: /ping

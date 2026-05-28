@@ -1,0 +1,5 @@
+Command:
+minikube image load booking-service:latest
+
+Result:
+completed successfully

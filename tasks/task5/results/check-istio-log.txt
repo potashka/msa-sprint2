@@ -1,0 +1,16 @@
+Checking Istio control plane...
+NAME                                    READY   STATUS    RESTARTS   AGE
+istio-egressgateway-64d76c9487-trqlf    1/1     Running   0          11m
+istio-ingressgateway-7c4fcf8489-lckzj   1/1     Running   0          11m
+istiod-6ffcf45f8b-qrjlg                 1/1     Running   0          12m
+
+Checking default namespace sidecar injection label...
+istio-injection=enabled
+
+Checking booking-service Istio resources...
+NAME              GATEWAYS   HOSTS                 AGE
+booking-service              ["booking-service"]   25s
+NAME              HOST              AGE
+booking-service   booking-service   36s
+
+Istio check passed

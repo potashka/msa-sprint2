@@ -1,0 +1,14 @@
+Checking feature flag routing with header X-Feature-Enabled: true from pod booking-service-v1-6bdf7f894-hgjsb...
+v2 responses with feature header: 10/10
+Raw responses:
+pong from v2
+pong from v2
+pong from v2
+pong from v2
+pong from v2
+pong from v2
+pong from v2
+pong from v2
+pong from v2
+pong from v2
+Feature flag routing passed

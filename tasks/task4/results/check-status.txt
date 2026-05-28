@@ -1,0 +1,25 @@
+Checking booking-service pods...
+NAME                               READY   STATUS    RESTARTS   AGE
+booking-service-798dffc5dc-v6wsd   1/1     Running   0          26s
+
+Checking booking-service service...
+NAME              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+booking-service   ClusterIP   10.106.233.133   <none>        80/TCP    26s
+
+Helm releases...
+NAME           	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART                	APP VERSION
+booking-service	default  	1       	2026-05-29 01:03:48.405287926 +0300 MSK	deployed	booking-service-0.1.0	1.0        
+
+Manual checks:
+  kubectl port-forward svc/booking-service 8080:80
+  curl http://localhost:8080/ping
+  curl http://localhost:8080/ready
+  curl http://localhost:8080/feature
+  ./check-dns.sh
+
+Quick local curl if port-forward is already running:
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0   196    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+curl: (22) The requested URL returned error: 404
+Port-forward is not running or service is not reachable on localhost:8080

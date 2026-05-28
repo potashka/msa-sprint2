@@ -1,5 +1,7 @@
 replicaCount: 1
 
+version: v2
+
 image:
   name: booking-service
   tag: latest
@@ -7,9 +9,12 @@ image:
 
 env:
   - name: ENABLE_FEATURE_X
-    value: "false"
+    value: "true"
+  - name: SERVICE_VERSION
+    value: "v2"
 
 service:
+  create: false
   type: ClusterIP
   port: 80
   targetPort: 8080

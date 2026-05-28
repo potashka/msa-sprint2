@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: booking-service
+  name: {{ .Release.Name }}
   labels:
     app: booking-service
+    version: {{ .Values.version }}
     app.kubernetes.io/name: booking-service
     app.kubernetes.io/instance: {{ .Release.Name }}
 spec:
@@ -11,10 +12,13 @@ spec:
   selector:
     matchLabels:
       app: booking-service
+      version: {{ .Values.version }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: booking-service
+        version: {{ .Values.version }}
         app.kubernetes.io/name: booking-service
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:

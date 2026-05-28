@@ -1,0 +1,12 @@
+Fallback / retry demonstration
+
+Istio retries and circuit breaking are configured in destination-rule.yaml and virtual-service.yaml.
+Automatic fallback from subset v1 to subset v2 is not guaranteed by this config when v1 is scaled to zero;
+the canary route still contains explicit subset weights. This script provides a safe manual check.
+
+Manual fallback experiment:
+  kubectl scale deployment booking-service-v1 --replicas=0
+  REQUESTS=20 ./check-canary.sh
+  kubectl scale deployment booking-service-v1 --replicas=1
+
+Set RUN_FALLBACK_TEST=true to execute the scale-down experiment automatically.

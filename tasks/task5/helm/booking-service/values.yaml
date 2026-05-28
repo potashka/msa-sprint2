@@ -1,5 +1,7 @@
 replicaCount: 1
 
+version: v1
+
 image:
   name: booking-service
   tag: latest
@@ -10,6 +12,7 @@ env:
     value: "false"
 
 service:
+  create: true
   type: ClusterIP
   port: 80
   targetPort: 8080

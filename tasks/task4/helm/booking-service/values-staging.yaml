@@ -7,7 +7,7 @@ image:
 
 env:
   - name: ENABLE_FEATURE_X
-    value: "false"
+    value: "true"
 
 service:
   type: ClusterIP
