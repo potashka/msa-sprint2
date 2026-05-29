@@ -115,15 +115,27 @@ Circuit breaking настроен в `DestinationRule`:
 
 Фактическая маршрутизация по `X-Feature-Enabled: true` реализована в `VirtualService`. `EnvoyFilter` добавлен как минимальный учебный артефакт расширения Envoy: он добавляет response header `x-feature-routing-demo` для workloads `app=booking-service`.
 
-## Ограничения fallback
+## Fallback: результаты теста
 
-Автоматический fallback с subset `v1` на subset `v2` при полном выключении v1 не гарантируется текущей схемой, потому что default route явно содержит веса subsets. Retry и outlier detection помогают при сбоях endpoint'ов, но не заменяют отдельную fallback route policy.
-
-`check-fallback.sh` поэтому по умолчанию выводит безопасный ручной сценарий. Автоматический эксперимент можно запустить так:
+Тест запущен командой:
 
 ```bash
-RUN_FALLBACK_TEST=true ./check-fallback.sh
+RUN_FALLBACK_TEST=true ./check-fallback.sh | tee results/check-fallback-log.txt
 ```
+
+Скрипт масштабирует `booking-service-v1` до 0 реплик, отправляет 20 запросов из pod с sidecar, затем восстанавливает v1.
+
+**Результат:** из 20 запросов 3 вернули `pong from v2`, остальные 17 — пустой ответ (connection failure).
+
+**Что это означает:** 3/20 ≈ 10% — в точности соответствует весу subset v2 в canary route. Запросы, направленные на subset v1 (90%), получали connection failure, потому что у v1 не было живых endpoints. Ретраи (`retryOn: connect-failure`) повторяли попытку на том же subset v1 и тоже падали.
+
+**Вывод по механике fallback в Istio:**
+
+Retry + outlier detection защищают от **transient failures** отдельных pod: если один pod v1 возвращает 5xx, outlier detection его eject'ит, следующий запрос уходит на другой endpoint v1. Это работает.
+
+При **полном отсутствии endpoints** в subset (scale to 0) Envoy не переключается на другой subset автоматически — веса VirtualService фиксированы. Чтобы реализовать полный failover v1 → v2, потребовалась бы отдельная политика: например, priority-based routing или изменение весов через внешний контроллер при обнаружении недоступности subset.
+
+Для задания это поведение задокументировано и протестировано. Скриншот результата теста сохранён в `results/`.
 
 ## Фиксация результатов для сдачи
 
