@@ -1,0 +1,41 @@
+@startuml hotelio-to-be
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Hotelio To-Be Architecture - Strangler Fig, Booking First
+
+Person(user, "User", "Hotelio customer")
+System_Ext(frontend, "Frontend", "Web/mobile client")
+
+System_Boundary(hotelio, "Hotelio") {
+  Container(gateway, "GraphQL Gateway / BFF", "GraphQL", "Single frontend entry point and Strangler routing layer")
+
+  Container(monolith, "Monolith Legacy", "Java Spring Boot", "Legacy User, Hotel, PromoCode, Review and non-migrated Booking functionality")
+  Container(booking, "booking-service", "gRPC service", "Owns booking creation and publishes BookingCreated events")
+  Container(history, "booking-history-service", "Kafka consumer", "Builds booking history and statistics read model")
+
+  ContainerQueue(kafka, "Kafka", "Event streaming", "BookingCreated topic")
+
+  ContainerDb(monolithDb, "PostgreSQL monolith", "PostgreSQL", "Legacy app_user, hotel, promo_code, review and remaining legacy tables")
+  ContainerDb(bookingDb, "PostgreSQL booking-service", "PostgreSQL", "Booking write model owned by booking-service")
+  ContainerDb(historyDb, "PostgreSQL history/statistics", "PostgreSQL", "Booking history and statistics read model")
+}
+
+Rel(user, frontend, "Uses")
+Rel(frontend, gateway, "Queries and mutations", "GraphQL")
+
+Rel(gateway, booking, "Routes createBooking mutation", "gRPC")
+Rel(gateway, monolith, "Routes legacy reads and non-migrated operations", "REST")
+
+Rel(booking, monolith, "Validates user, hotel, promo code and review trust while domains remain legacy", "REST")
+Rel(booking, bookingDb, "Reads/writes bookings", "SQL")
+Rel(booking, kafka, "Publishes BookingCreated", "Kafka")
+Rel(history, kafka, "Consumes BookingCreated", "Kafka")
+Rel(history, historyDb, "Writes history/statistics read model", "SQL")
+Rel(monolith, monolithDb, "Reads/writes legacy data", "SQL")
+
+SHOW_LEGEND()
+@enduml
+

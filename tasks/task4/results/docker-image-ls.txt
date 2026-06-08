@@ -1,0 +1,3 @@
+WARNING: This output is designed for human readability. For machine-readable output, please use --format.
+IMAGE                    ID             DISK USAGE   CONTENT SIZE   EXTRA
+booking-service:latest   858973575213       26.5MB         8.59MB        

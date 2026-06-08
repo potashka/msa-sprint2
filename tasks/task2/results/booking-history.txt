@@ -1,0 +1,8 @@
+-- Booking-history-service DB
+-- SQL: SELECT * FROM booking_history ORDER BY id;
+ id | booking_id |   user_id   |   hotel_id   | promo_code | discount_percent | price |         created_at         |          consumed_at          
+----+------------+-------------+--------------+------------+------------------+-------+----------------------------+-------------------------------
+  1 | 1          | test-user-2 | test-hotel-1 | TESTCODE1  |               10 |    90 | 2026-05-28 15:12:58.317+00 | 2026-05-28 15:12:58.758772+00
+  2 | 2          | test-user-2 | test-hotel-1 | TESTCODE1  |               10 |    90 | 2026-05-28 15:26:37.269+00 | 2026-05-28 15:26:37.397024+00
+(2 rows)
+

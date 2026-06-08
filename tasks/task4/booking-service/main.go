@@ -11,17 +11,33 @@ func main() {
 	enableFeatureX := os.Getenv("ENABLE_FEATURE_X") == "true"
 
 	http.HandleFunc("/ping", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "pong")
+		if r.Method != http.MethodGet {
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		fmt.Fprint(w, "pong")
 	})
 
-	// TODO: Feature flag route
-	// if ENABLE_FEATURE_X=true, expose /feature
-	if enableFeatureX {
-		http.HandleFunc("/feature", func(w http.ResponseWriter, r *http.Request) {
-			fmt.Fprintf(w, "Feature X is enabled!")
-		})
-	}
+	http.HandleFunc("/ready", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		fmt.Fprint(w, "ready")
+	})
 
-	log.Println("Server running on :8080")
+	http.HandleFunc("/feature", func(w http.ResponseWriter, r *http.Request) {
+		if r.Method != http.MethodGet {
+			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
+			return
+		}
+		if !enableFeatureX {
+			http.Error(w, "feature disabled", http.StatusNotFound)
+			return
+		}
+		fmt.Fprint(w, "Feature X is enabled")
+	})
+
+	log.Printf("booking-service starting on :8080; ENABLE_FEATURE_X=%t", enableFeatureX)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }

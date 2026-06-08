@@ -1,0 +1,10 @@
+curl http://localhost:18080/ping
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100     4  100     4    0     0    147      0 --:--:-- --:--:-- --:--:--   148
+pong
+curl http://localhost:18080/ready
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100     5  100     5    0     0    881      0 --:--:-- --:--:-- --:--:--  1000
+ready

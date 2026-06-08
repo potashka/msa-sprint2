@@ -1,0 +1,30 @@
+Task2 regression: gRPC booking-service + Kafka history
+Loading monolith fixtures...
+DELETE 4
+DELETE 3
+DELETE 12
+DELETE 3
+DELETE 2
+INSERT 0 4
+INSERT 0 3
+INSERT 0 12
+INSERT 0 3
+INSERT 0 2
+Checking existing monolith APIs...
+OK: user lookup
+OK: VIP status
+OK: hotel operational
+OK: hotel fully-booked
+OK: trusted hotel
+OK: promo lookup
+OK: promo validate
+Checking monolith GET /api/bookings remains available...
+OK: monolith booking list
+Creating booking through monolith -> gRPC booking-service...
+OK: booking created with promo
+OK: booking stored in booking-db
+OK: BookingCreated consumed into booking_history
+Checking rejection cases still fail through the new path...
+OK: inactive user rejected
+OK: fully booked hotel rejected
+All task2 regression checks passed.

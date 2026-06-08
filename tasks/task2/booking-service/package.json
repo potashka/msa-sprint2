@@ -1,0 +1,17 @@
+{
+  "name": "hotelio-booking-service",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "list": "node src/list-bookings.js"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.10",
+    "@grpc/proto-loader": "^0.7.13",
+    "axios": "^1.7.2",
+    "kafkajs": "^2.2.4",
+    "pg": "^8.12.0"
+  }
+}

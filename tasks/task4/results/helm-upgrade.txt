@@ -1,0 +1,7 @@
+Release "booking-service" does not exist. Installing it now.
+NAME: booking-service
+LAST DEPLOYED: Fri May 29 01:03:48 2026
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None

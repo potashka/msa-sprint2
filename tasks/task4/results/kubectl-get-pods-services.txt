@@ -1,0 +1,5 @@
+NAME                               READY   STATUS    RESTARTS   AGE   IP           NODE       NOMINATED NODE   READINESS GATES
+booking-service-798dffc5dc-v6wsd   1/1     Running   0          27s   10.244.0.3   minikube   <none>           <none>
+
+NAME              TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)   AGE
+booking-service   ClusterIP   10.106.233.133   <none>        80/TCP    27s

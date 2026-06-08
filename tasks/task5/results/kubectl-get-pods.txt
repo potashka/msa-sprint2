@@ -1,0 +1,3 @@
+NAME                                 READY   STATUS    RESTARTS   AGE
+booking-service-v1-6bdf7f894-hgjsb   2/2     Running   0          2m38s
+booking-service-v2-d59848494-4s7j2   2/2     Running   0          2m22s
